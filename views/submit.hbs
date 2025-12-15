@@ -1,0 +1,35 @@
+<main class="wrap">
+    <a class="back" href="/">← back</a>
+    <h1>Submit a Memory</h1>
+
+    <form id="entryForm" class="card">
+        <label>
+            Title (optional)
+            <input name="title" type="text" maxlength="80" />
+        </label>
+
+        <label>
+            Memory (required)
+            <textarea name="body" rows="6" required></textarea>
+        </label>
+
+        <label>
+            Tags (comma separated)
+            <input name="tags" type="text" placeholder="dream, love, fear" />
+        </label>
+
+        <label>
+            Signal Strength
+            <select name="signalStrength">
+                <option value="strong">Strong</option>
+                <option value="unstable" selected>Unstable</option>
+                <option value="broken">Broken</option>
+            </select>
+        </label>
+
+        <button class="btn" type="submit">Transmit</button>
+        <p id="status" class="hint"></p>
+    </form>
+</main>
+
+<script src="/submit.js"></script>
