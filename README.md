@@ -1,29 +1,56 @@
-# MEDP33100 - Final Project, Public Archive
+Lost Data
+Live version:
+https://jarvisfalia.com/final-project/
 
-## Live Demo
+Project Overview
 
-- Include a link to the live version of the project hosted on Render.
+Lost Data is a public, anonymous archive where users submit short “transmissions” such as memories, messages, or fragments. While all submissions are stored intact in the database, the archive never presents a perfectly stable version of them. Each time a user views the archive, memories are re-transmitted through an unreliable system and appear partially corrupted.
 
-## Project Overview
+The project explores the fragility of digital memory and treats loss, error, and instability as core features rather than bugs. Instead of prioritizing clean or frictionless UX, Lost Data foregrounds uncertainty and absence as meaningful parts of the browsing experience.
 
-- Briefly describe the project and its purpose.
+Endpoints
 
-## Endpoints
+GET /entries
+Retrieves all archived entries. Entries are dynamically altered at read-time based on signal strength, resulting in different corruption patterns on each request.
 
-- List all the endpoints of the API in this project with a brief description of what each endpoint does.
+POST /entries
+Creates a new archive entry. Accepts title, body text, tags, and signal strength. The original text is stored intact in the database.
 
-## Technologies Used
+GET /entries/:id
+Retrieves a single entry by its ID, applying the same corruption logic during retrieval.
 
-- List the technologies and tools used in the project:
-    - **Languages**: HTML, CSS, JavaScript
-    - **Libraries**: (e.g., GSAP for animations)
-    - **Other**: Figma for design, Adobe Illustrator for illustrations, OpenAI for A.I. generated assets, etc.
+Each endpoint includes basic error handling to account for missing data or network issues.
 
-## Credits
+Technologies Used
 
-- List any third-party assets used in the project (e.g., sound effects, images, fonts) and provide proper attribution.
-- Acknowledge any resources, tutorials, or references you used to help complete the project.
+Languages:
+HTML, CSS, JavaScript
 
-## Future Enhancements
+Backend:
+Node.js, Express
 
-- List any features you would’ve liked to add if given more time
+Database:
+MongoDB (MongoDB Atlas)
+
+Templating:
+Handlebars (HBS)
+
+Hosting / Deployment:
+DigitalOcean server with reverse proxy and PM2 process management
+
+Other Tools:
+GitHub for version control
+PM2 for process management
+
+Credits
+Conceptual inspiration from Olia Lialina’s writing on early net art and “net.language”
+Express and MongoDB documentation
+General debugging references from MDN Web Docs
+No third-party images, fonts, or sound assets were used. All visuals rely on system fonts and custom CSS.
+
+Future Enhancements
+Time-based decay so older memories degrade more heavily over time
+A “random memory” mode for non-linear archive exploration
+Visual distinction between different signal strengths
+Long-term archival behavior where some entries disappear entirely
+
